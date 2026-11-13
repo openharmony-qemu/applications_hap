@@ -32,13 +32,6 @@ ohos_prebuilt_etc("launcher_settings_hap") {
   subsystem_name = "applications"
 }
 
-ohos_prebuilt_etc("settings_hap") {
-  source = hap_src_dir + "Settings.hap"
-  module_install_dir = "app/com.ohos.settings"
-  part_name = "prebuilt_hap"
-  subsystem_name = "applications"
-}
-
 ohos_prebuilt_etc("note_hap") {
   source = "Note.hap"
   module_install_dir = "app/com.ohos.note"
@@ -53,18 +46,34 @@ ohos_prebuilt_etc("settingsData_hap") {
   subsystem_name = "applications"
 }
 
-ohos_prebuilt_etc("navigationBar_hap") {
-  source = "SystemUI-NavigationBar.hap"
-  module_install_dir = "app/com.ohos.systemui"
-  part_name = "prebuilt_hap"
-  subsystem_name = "applications"
+if (defined(product_name) &&
+    (product_name == "arm64_virt" || product_name == "armv7a_virt" ||
+     product_name == "x86_64_virt")) {
+  group("navigationBar_hap") {
+    deps = [ "//applications/standard/systemui:systemui_hap" ]
+  }
+} else {
+  ohos_prebuilt_etc("navigationBar_hap") {
+    source = "SystemUI-NavigationBar.hap"
+    module_install_dir = "app/com.ohos.systemui"
+    part_name = "prebuilt_hap"
+    subsystem_name = "applications"
+  }
 }
 
-ohos_prebuilt_etc("statusBar_hap") {
-  source = "SystemUI-StatusBar.hap"
-  module_install_dir = "app/com.ohos.systemui"
-  part_name = "prebuilt_hap"
-  subsystem_name = "applications"
+if (defined(product_name) &&
+    (product_name == "arm64_virt" || product_name == "armv7a_virt" ||
+     product_name == "x86_64_virt")) {
+  group("statusBar_hap") {
+    deps = [ "//applications/standard/systemui:systemui_hap" ]
+  }
+} else {
+  ohos_prebuilt_etc("statusBar_hap") {
+    source = "SystemUI-StatusBar.hap"
+    module_install_dir = "app/com.ohos.systemui"
+    part_name = "prebuilt_hap"
+    subsystem_name = "applications"
+  }
 }
 
 ohos_prebuilt_etc("screenLock_hap") {
@@ -74,39 +83,79 @@ ohos_prebuilt_etc("screenLock_hap") {
   subsystem_name = "applications"
 }
 
-ohos_prebuilt_etc("notificationManagement_hap") {
-  source = "SystemUI-NotificationManagement.hap"
-  module_install_dir = "app/com.ohos.systemui"
-  part_name = "prebuilt_hap"
-  subsystem_name = "applications"
+if (defined(product_name) &&
+    (product_name == "arm64_virt" || product_name == "armv7a_virt" ||
+     product_name == "x86_64_virt")) {
+  group("notificationManagement_hap") {
+    deps = [ "//applications/standard/systemui:systemui_hap" ]
+  }
+} else {
+  ohos_prebuilt_etc("notificationManagement_hap") {
+    source = "SystemUI-NotificationManagement.hap"
+    module_install_dir = "app/com.ohos.systemui"
+    part_name = "prebuilt_hap"
+    subsystem_name = "applications"
+  }
 }
 
-ohos_prebuilt_etc("volumePanel_hap") {
-  source = "SystemUI-VolumePanel.hap"
-  module_install_dir = "app/com.ohos.systemui"
-  part_name = "prebuilt_hap"
-  subsystem_name = "applications"
+if (defined(product_name) &&
+    (product_name == "arm64_virt" || product_name == "armv7a_virt" ||
+     product_name == "x86_64_virt")) {
+  group("volumePanel_hap") {
+    deps = [ "//applications/standard/systemui:systemui_hap" ]
+  }
+} else {
+  ohos_prebuilt_etc("volumePanel_hap") {
+    source = "SystemUI-VolumePanel.hap"
+    module_install_dir = "app/com.ohos.systemui"
+    part_name = "prebuilt_hap"
+    subsystem_name = "applications"
+  }
 }
 
-ohos_prebuilt_etc("dropdownPanel_hap") {
-  source = "SystemUI-DropdownPanel.hap"
-  module_install_dir = "app/com.ohos.systemui"
-  part_name = "prebuilt_hap"
-  subsystem_name = "applications"
+if (defined(product_name) &&
+    (product_name == "arm64_virt" || product_name == "armv7a_virt" ||
+     product_name == "x86_64_virt")) {
+  group("dropdownPanel_hap") {
+    deps = [ "//applications/standard/systemui:systemui_hap" ]
+  }
+} else {
+  ohos_prebuilt_etc("dropdownPanel_hap") {
+    source = "SystemUI-DropdownPanel.hap"
+    module_install_dir = "app/com.ohos.systemui"
+    part_name = "prebuilt_hap"
+    subsystem_name = "applications"
+  }
 }
 
-ohos_prebuilt_etc("systemui_hap") {
-  source = "SystemUI.hap"
-  module_install_dir = "app/com.ohos.systemui"
-  part_name = "prebuilt_hap"
-  subsystem_name = "applications"
+if (defined(product_name) &&
+    (product_name == "arm64_virt" || product_name == "armv7a_virt" ||
+     product_name == "x86_64_virt")) {
+  group("systemui_hap") {
+    deps = [ "//applications/standard/systemui:systemui_hap" ]
+  }
+} else {
+  ohos_prebuilt_etc("systemui_hap") {
+    source = "SystemUI.hap"
+    module_install_dir = "app/com.ohos.systemui"
+    part_name = "prebuilt_hap"
+    subsystem_name = "applications"
+  }
 }
 
-ohos_prebuilt_etc("systemDialog_hap") {
-  source = "SystemUI-SystemDialog.hap"
-  module_install_dir = "app/com.ohos.systemui"
-  part_name = "prebuilt_hap"
-  subsystem_name = "applications"
+if (defined(product_name) &&
+    (product_name == "arm64_virt" || product_name == "armv7a_virt" ||
+     product_name == "x86_64_virt")) {
+  group("systemDialog_hap") {
+    deps = [ "//applications/standard/systemui:systemui_hap" ]
+  }
+} else {
+  ohos_prebuilt_etc("systemDialog_hap") {
+    source = "SystemUI-SystemDialog.hap"
+    module_install_dir = "app/com.ohos.systemui"
+    part_name = "prebuilt_hap"
+    subsystem_name = "applications"
+  }
 }
 
 ohos_prebuilt_etc("screen_shot_hap") {
@@ -126,13 +175,6 @@ ohos_prebuilt_etc("clock_demo_hap") {
 ohos_prebuilt_etc("calc_demo_hap") {
   source = hap_src_dir + "Calc_Demo.hap"
   module_install_dir = "app/com.example.distributedcalc"
-  part_name = "prebuilt_hap"
-  subsystem_name = "applications"
-}
-
-ohos_prebuilt_etc("photos_hap") {
-  source = hap_src_dir + "Photos.hap"
-  module_install_dir = "app/com.ohos.photos"
   part_name = "prebuilt_hap"
   subsystem_name = "applications"
 }
@@ -204,11 +246,19 @@ ohos_prebuilt_etc("mobileDataSettings_hap") {
   subsystem_name = "applications"
 }
 
-ohos_prebuilt_etc("CallSetting_hap") {
-  source = hap_src_dir + "CallSetting.hap"
-  module_install_dir = "app/com.ohos.callsetting"
-  part_name = "prebuilt_hap"
-  subsystem_name = "applications"
+if (defined(product_name) &&
+    (product_name == "arm64_virt" || product_name == "armv7a_virt" ||
+     product_name == "x86_64_virt")) {
+  group("CallSetting_hap") {
+    deps = [ "//applications/standard/call/CallSetting:callsetting_hap" ]
+  }
+} else {
+  ohos_prebuilt_etc("CallSetting_hap") {
+    source = hap_src_dir + "CallSetting.hap"
+    module_install_dir = "app/com.ohos.callsetting"
+    part_name = "prebuilt_hap"
+    subsystem_name = "applications"
+  }
 }
 
 ohos_prebuilt_etc("EmergencyCommunication_hap") {
@@ -218,11 +268,19 @@ ohos_prebuilt_etc("EmergencyCommunication_hap") {
   subsystem_name = "applications"
 }
 
-ohos_prebuilt_etc("CommunicationSetting_hap") {
-  source = hap_src_dir + "CommunicationSetting.hap"
-  module_install_dir = "app/com.ohos.communicationsetting"
-  part_name = "prebuilt_hap"
-  subsystem_name = "applications"
+if (defined(product_name) &&
+    (product_name == "arm64_virt" || product_name == "armv7a_virt" ||
+     product_name == "x86_64_virt")) {
+  group("CommunicationSetting_hap") {
+    deps = [ "//applications/standard/call/CommunicationSetting:communicationsetting_hap" ]
+  }
+} else {
+  ohos_prebuilt_etc("CommunicationSetting_hap") {
+    source = hap_src_dir + "CommunicationSetting.hap"
+    module_install_dir = "app/com.ohos.communicationsetting"
+    part_name = "prebuilt_hap"
+    subsystem_name = "applications"
+  }
 }
 
 ohos_prebuilt_etc("CallRecorder_hap") {
@@ -232,18 +290,49 @@ ohos_prebuilt_etc("CallRecorder_hap") {
   subsystem_name = "applications"
 }
 
-ohos_prebuilt_etc("mms_hap") {
-  source = hap_src_dir + "Mms.hap"
-  module_install_dir = "app/com.ohos.mms"
-  part_name = "prebuilt_hap"
-  subsystem_name = "applications"
+if (defined(product_name) &&
+    (product_name == "arm64_virt" || product_name == "armv7a_virt" ||
+     product_name == "x86_64_virt")) {
+  group("mms_hap") {
+    deps = [ "//applications/standard/mms:mms_hap" ]
+  }
+} else {
+  ohos_prebuilt_etc("mms_hap") {
+    source = hap_src_dir + "Mms.hap"
+    module_install_dir = "app/com.ohos.mms"
+    part_name = "prebuilt_hap"
+    subsystem_name = "applications"
+  }
 }
 
-ohos_prebuilt_etc("contacts_hap") {
-  source = hap_src_dir + "Contacts.hap"
-  module_install_dir = "app/com.ohos.contacts"
-  part_name = "prebuilt_hap"
-  subsystem_name = "applications"
+if (defined(product_name) &&
+    (product_name == "arm64_virt" || product_name == "armv7a_virt" ||
+     product_name == "x86_64_virt")) {
+  group("contacts_hap") {
+    deps = [ "//applications/standard/contacts:contacts_hap" ]
+  }
+} else {
+  ohos_prebuilt_etc("contacts_hap") {
+    source = hap_src_dir + "Contacts.hap"
+    module_install_dir = "app/com.ohos.contacts"
+    part_name = "prebuilt_hap"
+    subsystem_name = "applications"
+  }
+}
+
+# One real renderer module per QEMU device profile. Other products retain their
+# existing providers and receive an empty dependency group here.
+group("wallpaper_hap") {
+  deps = []
+  if (defined(product_name) &&
+    (product_name == "arm64_virt" || product_name == "armv7a_virt" ||
+     product_name == "x86_64_virt")) {
+    if (defined(device_type) && device_type == "2in1") {
+      deps = [ "//applications/standard/theme:wallpaper_pad_hap" ]
+    } else {
+      deps = [ "//applications/standard/theme:wallpaper_phone_hap" ]
+    }
+  }
 }
 
 ohos_prebuilt_etc("settings_faceauth_hap") {
@@ -277,13 +366,6 @@ ohos_prebuilt_etc("updateapp_hap") {
 ohos_prebuilt_etc("printspooler_hap") {
   source = hap_src_dir + "PrintSpooler.hap"
   module_install_dir = "app/com.ohos.spooler"
-  part_name = "prebuilt_hap"
-  subsystem_name = "applications"
-}
-
-ohos_prebuilt_etc("calendarData_hap") {
-  source = hap_src_dir + "CalendarData.hap"
-  module_install_dir = "app/com.ohos.calendardata"
   part_name = "prebuilt_hap"
   subsystem_name = "applications"
 }
@@ -352,21 +434,39 @@ ohos_prebuilt_etc("Floatingnavigation_hap") {
 }
 
 ohos_prebuilt_etc("Intelligent_Scene_hap") {
-  source = hap_src_dir + "Intelligent_Scene.hap"
+  if (defined(product_name) &&
+      (product_name == "arm64_virt" || product_name == "armv7a_virt" ||
+       product_name == "x86_64_virt")) {
+    source = "qemu_ui_provider_inputs/Intelligent_Scene.hap"
+  } else {
+    source = hap_src_dir + "Intelligent_Scene.hap"
+  }
   module_install_dir = "app/com.ohos.intelligentscene"
   part_name = "prebuilt_hap"
   subsystem_name = "applications"
 }
 
 ohos_prebuilt_etc("PortalLogin_hap") {
-  source = hap_src_dir + "PortalLogin.hap"
+  if (defined(product_name) &&
+      (product_name == "arm64_virt" || product_name == "armv7a_virt" ||
+       product_name == "x86_64_virt")) {
+    source = "qemu_ui_provider_inputs/PortalLogin.hap"
+  } else {
+    source = hap_src_dir + "PortalLogin.hap"
+  }
   module_install_dir = "app/com.wifiservice.portallogin"
   part_name = "prebuilt_hap"
   subsystem_name = "applications"
 }
 
 ohos_prebuilt_etc("mediacontroller_hap") {
-  source = hap_src_dir + "mediacontroller.hap"
+  if (defined(product_name) &&
+      (product_name == "arm64_virt" || product_name == "armv7a_virt" ||
+       product_name == "x86_64_virt")) {
+    source = "qemu_ui_provider_inputs/mediacontroller.hap"
+  } else {
+    source = hap_src_dir + "mediacontroller.hap"
+  }
   module_install_dir = "app/com.hmos.mediacontroller"
   part_name = "prebuilt_hap"
   subsystem_name = "applications"
@@ -410,7 +510,6 @@ ohos_prebuilt_etc("tips_hap") {
 group("hap") {
   deps = [
     ":audiopicker_hap",
-    ":calendarData_hap",
     ":printspooler_hap",
     ":securityPrivacyCenter_hap",
     ":systemDialog_hap",
@@ -421,6 +520,7 @@ group("hap") {
     "//applications/standard/hap:capture.ogg",
     "//applications/standard/hap:clock_demo_hap",
     "//applications/standard/hap:contacts_hap",
+    "//applications/standard/hap:wallpaper_hap",
     "//applications/standard/hap:demo.wav",
     "//applications/standard/hap:dropdownPanel_hap",
     "//applications/standard/hap:dynamic.wav",
@@ -434,12 +534,10 @@ group("hap") {
     "//applications/standard/hap:navigationBar_hap",
     "//applications/standard/hap:note_hap",
     "//applications/standard/hap:notificationManagement_hap",
-    "//applications/standard/hap:photos_hap",
     "//applications/standard/hap:screenLock_hap",
     "//applications/standard/hap:screen_shot_hap",
     "//applications/standard/hap:settingsData_hap",
     "//applications/standard/hap:settings_faceauth_hap",
-    "//applications/standard/hap:settings_hap",
     "//applications/standard/hap:statusBar_hap",
     "//applications/standard/hap:systemui_hap",
     "//applications/standard/hap:volumePanel_hap",
@@ -475,7 +573,6 @@ group("hap") {
 
   if (defined(product_name) && product_name == "watchos") {
     deps -= [
-      ":calendarData_hap",
       ":printspooler_hap",
       ":securityPrivacyCenter_hap",
       ":systemDialog_hap",
@@ -485,6 +582,7 @@ group("hap") {
       "//applications/standard/hap:camera_hap",
       "//applications/standard/hap:capture.ogg",
       "//applications/standard/hap:contacts_hap",
+      "//applications/standard/hap:wallpaper_hap",
       "//applications/standard/hap:demo.wav",
       "//applications/standard/hap:dropdownPanel_hap",
       "//applications/standard/hap:dynamic.wav",
@@ -494,12 +592,10 @@ group("hap") {
       "//applications/standard/hap:music_demo_hap",
       "//applications/standard/hap:navigationBar_hap",
       "//applications/standard/hap:notificationManagement_hap",
-      "//applications/standard/hap:photos_hap",
       "//applications/standard/hap:screenLock_hap",
       "//applications/standard/hap:screen_shot_hap",
       "//applications/standard/hap:settingsData_hap",
       "//applications/standard/hap:settings_faceauth_hap",
-      "//applications/standard/hap:settings_hap",
       "//applications/standard/hap:statusBar_hap",
       "//applications/standard/hap:systemui_hap",
       "//applications/standard/hap:volumePanel_hap",
@@ -511,4 +607,14 @@ group("hap") {
     deps +=
         [ "//applications/standard/admin_provisioning:adminprovisioning_hap" ]
   }
+  # QEMU providers are ordinary source-built OS applications.
+  if (defined(product_name) &&
+      (product_name == "arm64_virt" || product_name == "armv7a_virt" ||
+       product_name == "x86_64_virt")) {
+    deps += [
+      "//applications/standard/admin_provisioning:adminprovisioning_hap",
+      "//applications/standard/hap/vassistant_livecaptions579:vassistant_livecaptions579",
+    ]
+  }
+
 }

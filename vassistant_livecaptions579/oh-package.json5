@@ -1,0 +1,9 @@
+{
+  "modelVersion": "6.0.0",
+  "name": "vassistant",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "dependencies": {},
+  "devDependencies": {},
+  "dynamicDependencies": {}
+}
